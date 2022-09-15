@@ -18,5 +18,13 @@
     <ClCompile Include="COMP303_Assign_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IntHandling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IntHandling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
