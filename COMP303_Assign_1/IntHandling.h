@@ -6,3 +6,4 @@
 
 using namespace std;
 
+int read_to_array();
