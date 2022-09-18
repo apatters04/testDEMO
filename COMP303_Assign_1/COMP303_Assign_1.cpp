@@ -71,8 +71,8 @@ int main()
 		case 'A':
 			int* arraypointer;
 			arraypointer = int_array;
-			arraypointer = add_num(arraypointer, size, 69);
-			cout << "Adds integer to the end cutely" << endl;
+			add_num(arraypointer, size, 69);
+			cout << arraypointer[100] << endl;
 			cout << endl;
 			continue;
 

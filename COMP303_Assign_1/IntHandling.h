@@ -12,4 +12,4 @@ int num_exists(int array[], int ARRAY_SIZE, int num);
 
 void change_num(int array[], int index);
 
-int add_num(int array[], int size, int num);
+void add_num(int array[], int size, int num);

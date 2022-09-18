@@ -45,14 +45,7 @@ void change_num(int array[], int index) { // Changing value of element at a user
 	cout << "New Value at " << index << " is: " << array[index] << endl;
 }
 
-int add_num(int array[], int size, int num) {
-	int* newarray[101];
+void add_num(int array[], int size, int num) {
+	*(array + size) = num;
 
-	for (int i = 0; i < size; i++) {
-		newarray[i] = &array[i];
-	}
-
-	newarray[100] = num;
-
-	return newarray;
 }
