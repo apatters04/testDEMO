@@ -8,8 +8,8 @@ using namespace std;
 
 int main()
 {
-
-	read_to_array();
+	int int_array[];
+	int_array[] = read_to_array();
 
 	
 
