@@ -8,8 +8,24 @@ using namespace std;
 
 int main()
 {
-	int int_array[];
-	int_array[] = read_to_array();
+	ifstream fin;
+	string filename;
+
+	cout << "Please enter name of file: ";
+	cin >> filename;
+
+	fin.open(filename);
+
+	while (!fin.is_open()) {
+		cout << "Error: File Not Found" << endl;
+		cout << endl;
+
+		cout << "Please enter name of file: ";
+		cin >> filename;
+
+		fin.open(filename);
+	}
+
 
 	
 
