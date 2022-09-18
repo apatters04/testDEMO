@@ -10,7 +10,9 @@ int main()
 {
 	ifstream fin;
 	string filename;
-	int int_array[100];
+	const int ARRAY_SIZE = 100;
+	int int_array[ARRAY_SIZE];
+	int size = ARRAY_SIZE;
 	int hold;
 	char user_action = ' ';
 
@@ -32,11 +34,12 @@ int main()
 		fin.open(filename);
 	}
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < ARRAY_SIZE; i++) {
 		fin >> hold;
 		int_array[i] = hold;
 	}
 	fin.close();
+	cout << endl;
 
 	while (user_action != 'Q') { //Menu for user to enter choice of modification to the array
 		user_action = toupper(menu_choice());
@@ -47,11 +50,11 @@ int main()
 			cin >> usernum;
 			cout << endl;
 
-			if (num_exists(int_array, usernum) == -1) {
+			if (num_exists(int_array, ARRAY_SIZE, usernum) == -1) {
 				cout << "Number not found." << endl;
 			}
 			else {
-				cout << usernum << " was found at index " << num_exists(int_array, usernum) << endl;
+				cout << usernum << " was found at index " << num_exists(int_array, ARRAY_SIZE, usernum) << endl;
 			}
 			cout << endl;
 			continue;
@@ -66,6 +69,9 @@ int main()
 			continue;
 		
 		case 'A':
+			int* arraypointer;
+			arraypointer = int_array;
+			arraypointer = add_num(arraypointer, size, 69);
 			cout << "Adds integer to the end cutely" << endl;
 			cout << endl;
 			continue;

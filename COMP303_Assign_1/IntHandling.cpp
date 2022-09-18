@@ -21,7 +21,7 @@ char menu_choice() {
 	return userinput;
 }
 
-int num_exists(int array[], int num) { // Checking if a user input value exists in the array
+int num_exists(int array[], int ARRAY_SIZE, int num) { // Checking if a user input value exists in the array
 
 	for (int i = 0; i < 100; i++) {
 		if (array[i] == num) {
@@ -45,3 +45,14 @@ void change_num(int array[], int index) { // Changing value of element at a user
 	cout << "New Value at " << index << " is: " << array[index] << endl;
 }
 
+int add_num(int array[], int size, int num) {
+	int* newarray[101];
+
+	for (int i = 0; i < size; i++) {
+		newarray[i] = &array[i];
+	}
+
+	newarray[100] = num;
+
+	return newarray;
+}
