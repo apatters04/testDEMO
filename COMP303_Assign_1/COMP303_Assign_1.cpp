@@ -41,12 +41,12 @@ int main()
 	fin.close();
 	cout << endl;
 
-
 	int* arraypointer; //Creating an array pointer to modify array
 	arraypointer = int_array;
 
 	while (user_action != 'Q') { //Menu for user to enter choice of modification to the array
 		user_action = toupper(menu_choice());
+
 		switch (user_action) {
 		case 'C': //Change action
 			int usernum;
@@ -102,10 +102,13 @@ int main()
 
 		case 'Q':
 			cout << "Ending program. Goodbye!";
+			continue;
 			break;
 		}
-		cout << "Error: no action for choice input." << endl; //If user enters an invalid choice
+		
+		cout << "Error: Invalid choice." << endl;
 		cout << endl;
+		
 	}
 
 }
