@@ -104,6 +104,8 @@ int main()
 			cout << "Ending program. Goodbye!";
 			break;
 		}
+		cout << "Error: no action for choice input." << endl; //If user enters an invalid choice
+		cout << endl;
 	}
 
 }

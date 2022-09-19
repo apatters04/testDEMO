@@ -8,10 +8,10 @@ using namespace std;
 
 char menu_choice() { //Display to user the actions they can take
 	char userinput = ' ';
-	cout << "(C) check if an integer exists in the array" << endl;
-	cout << "(M) modify the value of an integer at a certain index" << endl;
-	cout << "(A) add new integer to end of the array" << endl;
-	cout << "(R) remove an integer from the array" << endl;
+	cout << "(C) Check if an integer exists in the array" << endl;
+	cout << "(M) Modify the value of an integer at a certain index" << endl;
+	cout << "(A) Add new integer to end of the array" << endl;
+	cout << "(R) Remove an integer from the array" << endl;
 	cout << "(Q) Exit" << endl;
 	cout << endl;
 
