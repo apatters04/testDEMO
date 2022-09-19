@@ -12,19 +12,19 @@ int main()
 	string filename;
 	const int ARRAY_SIZE = 100;
 	int int_array[ARRAY_SIZE];
-	int size = ARRAY_SIZE;
+	int size = ARRAY_SIZE; //Array size that can be incremented/changed based on user action
 	int hold;
 	char user_action = ' ';
 
 	/*
-		Reading file of 10 lines of 10 integers in each line into an array
+		Reading file of 10 lines of 10 integers in each line into an array - array size is 100
 	*/
 	cout << "Please enter name of file: ";
 	cin >> filename;
 
 	fin.open(filename);
 
-	while (!fin.is_open()) {
+	while (!fin.is_open()) { //Check for valid file name, keep asking user until file opens
 		cout << "Error: File Not Found" << endl;
 		cout << endl;
 
@@ -41,43 +41,62 @@ int main()
 	fin.close();
 	cout << endl;
 
+
+	int* arraypointer; //Creating an array pointer to modify array
+	arraypointer = int_array;
+
 	while (user_action != 'Q') { //Menu for user to enter choice of modification to the array
 		user_action = toupper(menu_choice());
 		switch (user_action) {
-		case 'C':
+		case 'C': //Change action
 			int usernum;
 			cout << "Enter user number you would like to search for: ";
 			cin >> usernum;
 			cout << endl;
 
-			if (num_exists(int_array, ARRAY_SIZE, usernum) == -1) {
+			if (num_exists(arraypointer, size, usernum) == -1) { //If not found, tell user
 				cout << "Number not found." << endl;
 			}
 			else {
-				cout << usernum << " was found at index " << num_exists(int_array, ARRAY_SIZE, usernum) << endl;
+				cout << usernum << " was found at index " << num_exists(arraypointer, size, usernum) << endl; //If found, tell user where val was found
 			}
 			cout << endl;
+
 			continue;
 
-		case 'M':
+		case 'M': //Modify action
 			int userindex;
 			cout << "Enter the index value you would like to modify: ";
 			cin >> userindex;
 			cout << endl;
-			change_num(int_array, userindex);
+
+			change_num(arraypointer, userindex);
 			cout << endl;
+
 			continue;
 		
-		case 'A':
-			int* arraypointer;
-			arraypointer = int_array;
-			add_num(arraypointer, size, 69);
-			cout << arraypointer[100] << endl;
+		case 'A': //Add action
+			int useradd;
+			cout << "Enter the value to be added to the end of the array: ";
+			cin >> useradd;
 			cout << endl;
+
+			arraypointer = add_num(arraypointer, size, useradd);
+			size++; //Incrementing array size to be used in other functions
+
+			cout << endl;
+			
 			continue;
 
-		case 'R':
-			cout << "Removes integer cutely" << endl;
+		case 'R': //Remove action
+			int user_removeindex;
+			cout << "Enter the index of the value you'd like to remove: ";
+			cin >> user_removeindex;
+			cout << endl;
+
+			arraypointer = remove_num(arraypointer, size, user_removeindex);
+			size--; //Decrementing array size to be used in other functions
+			
 			cout << endl;
 			continue;
 
