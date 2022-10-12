@@ -48,7 +48,7 @@ int main()
 		user_action = toupper(menu_choice());
 
 		switch (user_action) {
-		case 'C': //Change action
+		case 'C': //Check action
 			int usernum;
 			cout << "Enter user number you would like to search for: ";
 			cin >> usernum;
@@ -67,7 +67,6 @@ int main()
 		case 'M': //Modify action
 			int userindex;	
 			
-
 			try {
 				cout << "Enter the index value you would like to modify: ";
 				cin >> userindex;
@@ -76,11 +75,11 @@ int main()
 					change_num(arraypointer, userindex);
 				}
 				else {
-					throw (userindex);
+					throw (userindex); //Throwing exception for an index greater than array size
 				}
 			}
 			catch (int badIndex) {
-				cerr << "Error: Out of range for index  " << badIndex << endl;
+				cerr << "Error: Out of range for index  " << badIndex << endl; //Error message to user
 			}
 						
 			cout << endl;
@@ -89,9 +88,16 @@ int main()
 		
 		case 'A': //Add action
 			int useradd;
-			cout << "Enter the value to be added to the end of the array: ";
-			cin >> useradd;
-			cout << endl;
+
+			try {
+				cout << "Enter the value to be added to the end of the array: ";
+				cin >> useradd;
+				cout << endl;
+			}
+			catch {
+
+			}
+			
 
 			arraypointer = add_num(arraypointer, size, useradd);
 			size++; //Incrementing array size to be used in other functions
