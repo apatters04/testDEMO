@@ -93,16 +93,22 @@ int main()
 				cout << "Enter the value to be added to the end of the array: ";
 				cin >> useradd;
 				cout << endl;
-			}
-			catch {
 
+				if (!cin >> useradd) { //if user enters a value that is not an integer
+					throw (useradd);
+				}
+				else {
+					arraypointer = add_num(arraypointer, size, useradd);
+					size++; //Incrementing array size to be used in other functions
+
+					cout << endl;
+				}
+			}
+			catch (int badType) {
+				cerr << "Error: Wrong data type, please enter an integer.You entered '" << badType << "' " << endl;
 			}
 			
 
-			arraypointer = add_num(arraypointer, size, useradd);
-			size++; //Incrementing array size to be used in other functions
-
-			cout << endl;
 			
 			continue;
 
