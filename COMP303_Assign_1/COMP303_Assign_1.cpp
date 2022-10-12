@@ -65,12 +65,24 @@ int main()
 			continue;
 
 		case 'M': //Modify action
-			int userindex;
-			cout << "Enter the index value you would like to modify: ";
-			cin >> userindex;
-			cout << endl;
+			int userindex;	
+			
 
-			change_num(arraypointer, userindex);
+			try {
+				cout << "Enter the index value you would like to modify: ";
+				cin >> userindex;
+				cout << endl;
+				if (userindex < size) {
+					change_num(arraypointer, userindex);
+				}
+				else {
+					throw (userindex);
+				}
+			}
+			catch (int badIndex) {
+				cerr << "Error: Out of range for index  " << badIndex << endl;
+			}
+						
 			cout << endl;
 
 			continue;
