@@ -47,6 +47,7 @@ int main()
 
 	while (user_action != 'Q') { //Menu for user to enter choice of modification to the array
 		user_action = toupper(menu_choice());
+		cout << endl;
 
 		switch (user_action) {
 		case 'C': //Check action
@@ -70,27 +71,31 @@ int main()
 			
 			try {
 				cout << "Enter the index value you would like to modify: ";
-				cin >> userindex;
-				cout << endl;
+
+				//cin >> userindex;
 				
-				if (!(cin >> userindex)) { //catching invalid data type and throwing error
-					throw invalid_argument("Invalid type");
+				if (!(cin >> userindex)) {
+					throw invalid_argument("Invalid type!");
 				}
-				else if (userindex < size) {
-					change_num(arraypointer, userindex);
-				}
-				else {
+				else if (userindex > size) {
 					throw (userindex); //Throwing exception for an index greater than array size
 				}
+				else{
+					cout << endl;
+					change_num(arraypointer, userindex);
+				}
 			}
+			catch (int badIndex) {
+				cout << endl;
+				cerr << "Error: Out of range for index  " << badIndex << endl; //Error message to user
+			}
+
 			catch (invalid_argument) {
+				cout << endl;
 				cout << "Invalid Data Type! Please enter an integer." << endl;
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << endl;
-			}
-			catch (int badIndex) {
-				cerr << "Error: Out of range for index  " << badIndex << endl; //Error message to user
 			}
 						
 			cout << endl;
@@ -102,13 +107,11 @@ int main()
 
 			try {
 				cout << "Enter the value to be added to the end of the array: ";
-				
-				cout << endl;
-				cin >> useradd;
-
+				//cin >> useradd;
 				if (!(cin >> useradd)) { //if user enters a value that is not an integer
 					throw invalid_argument("Invalid data type");
 				}
+				cout << endl;
 				arraypointer = add_num(arraypointer, size, useradd);
 				size++; //Incrementing array size to be used in other functions
 
