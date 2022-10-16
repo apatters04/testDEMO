@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "IntHandling.h"
 
 using namespace std;
@@ -71,12 +72,22 @@ int main()
 				cout << "Enter the index value you would like to modify: ";
 				cin >> userindex;
 				cout << endl;
-				if (userindex < size) {
+				
+				if (!(cin >> userindex)) { //catching invalid data type and throwing error
+					throw invalid_argument("Invalid type");
+				}
+				else if (userindex < size) {
 					change_num(arraypointer, userindex);
 				}
 				else {
 					throw (userindex); //Throwing exception for an index greater than array size
 				}
+			}
+			catch (invalid_argument) {
+				cout << "Invalid Data Type! Please enter an integer." << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << endl;
 			}
 			catch (int badIndex) {
 				cerr << "Error: Out of range for index  " << badIndex << endl; //Error message to user
@@ -91,24 +102,24 @@ int main()
 
 			try {
 				cout << "Enter the value to be added to the end of the array: ";
-				cin >> useradd;
+				
 				cout << endl;
+				cin >> useradd;
 
-				if (!cin >> useradd) { //if user enters a value that is not an integer
-					throw (useradd);
+				if (!(cin >> useradd)) { //if user enters a value that is not an integer
+					throw invalid_argument("Invalid data type");
 				}
-				else {
-					arraypointer = add_num(arraypointer, size, useradd);
-					size++; //Incrementing array size to be used in other functions
+				arraypointer = add_num(arraypointer, size, useradd);
+				size++; //Incrementing array size to be used in other functions
 
-					cout << endl;
-				}
+				cout << endl;
 			}
-			catch (int badType) {
-				cerr << "Error: Wrong data type, please enter an integer.You entered '" << badType << "' " << endl;
+			catch (invalid_argument) {
+				cout << "Invalid Data Type! Please enter an integer." << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << endl;
 			}
-			
-
 			
 			continue;
 
