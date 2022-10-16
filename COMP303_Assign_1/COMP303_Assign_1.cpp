@@ -71,10 +71,8 @@ int main()
 			
 			try {
 				cout << "Enter the index value you would like to modify: ";
-
-				//cin >> userindex;
-				
-				if (!(cin >> userindex)) {
+			
+				if (!(cin >> userindex)) { //if user enters a value that is not an integer, throw exception
 					throw invalid_argument("Invalid type!");
 				}
 				else if (userindex > size) {
@@ -107,8 +105,7 @@ int main()
 
 			try {
 				cout << "Enter the value to be added to the end of the array: ";
-				//cin >> useradd;
-				if (!(cin >> useradd)) { //if user enters a value that is not an integer
+				if (!(cin >> useradd)) { //if user enters a value that is not an integer, throw exception
 					throw invalid_argument("Invalid data type");
 				}
 				cout << endl;
