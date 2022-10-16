@@ -1,3 +1,13 @@
+# COMP303_Assign_2 PART 1 - Adding Try/Catch blocks
+# Name: Andi Patterson
+# Date due: 10/18/2022
+
+# Instructions - Same as previous
+# Screenshots - integers.txt contains list of numbers 1-100:
+![AndiPatterson_Assign2_Part1_Screenshots](https://user-images.githubusercontent.com/106998896/196053048-cb6a9205-f33f-479e-b44a-4668dc218f0b.png)
+
+
+# -----------------------------------------------------
 # COMP303_Assign_1
 # Name: Andi Patterson
 # Date due: 9/20/2022
